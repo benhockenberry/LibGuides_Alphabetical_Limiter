@@ -1,0 +1,94 @@
+<style type="text/css"><!--
+.letterlimiterbox {
+text-align: center;
+}
+.letterlimiterbox ul {
+	margin-left: 0;
+	padding-left: 0;
+	display: inline;
+	}
+	.letterlimiterbox ul li {
+	margin-left: 0;
+	padding: 0.35em 0.65em 0.85em 0.65em;
+	/*border-left: 1px solid #000;*/
+	list-style: none;
+	display: inline;
+	}	
+        .letterlimiterbox ul li:first-child {
+ margin-left: 0;
+ padding: 0.35em 0.65em 0.85em 0em;
+/* border-left: none;*/
+ list-style: none;
+ display: inline;
+ }
+--></style>
+<div class="letterlimiterbox">
+<h3>Databases A-Z</h3>
+<ul class="limiterletters">
+<li><a class="limiterletter" href="A" title="Show only databases starting with A">A</a></li>
+<li><a class="limiterletter" href="B" title="Show only databases starting with B">B</a></li>
+<li><a class="limiterletter" href="C" title="Show only databases starting with C">C</a></li>
+<li><a class="limiterletter" href="D" title="Show only databases starting with D">D</a></li>
+<li><a class="limiterletter" href="E" title="Show only databases starting with E">E</a></li>
+<li><a class="limiterletter" href="F" title="Show only databases starting with F">F</a></li>
+<li><a class="limiterletter" href="G" title="Show only databases starting with G">G</a></li>
+<li><a class="limiterletter" href="H" title="Show only databases starting with H">H</a></li>
+<li><a class="limiterletter" href="I" title="Show only databases starting with I">I</a></li>
+<li><a class="limiterletter" href="J" title="Show only databases starting with J">J</a></li>
+<li><a class="limiterletter" href="K" title="Show only databases starting with K">K</a></li>
+<li><a class="limiterletter" href="L" title="Show only databases starting with L">L</a></li>
+<li><a class="limiterletter" href="M" title="Show only databases starting with M">M</a></li>
+<li><a class="limiterletter" href="N" title="Show only databases starting with N">N</a></li>
+<li><a class="limiterletter" href="O" title="Show only databases starting with O">O</a></li>
+<li><a class="limiterletter" href="P" title="Show only databases starting with P">P</a></li>
+<li><a class="limiterletter" href="Q" title="Show only databases starting with Q">Q</a></li>
+<li><a class="limiterletter" href="R" title="Show only databases starting with R">R</a></li>
+<li><a class="limiterletter" href="S" title="Show only databases starting with S">S</a></li>
+<li><a class="limiterletter" href="T" title="Show only databases starting with T">T</a></li>
+<li><a class="limiterletter" href="U" title="Show only databases starting with U">U</a></li>
+<li><a class="limiterletter" href="V" title="Show only databases starting with V">V</a></li>
+<li><a class="limiterletter" href="W" title="Show only databases starting with W">W</a></li>
+<li><a class="limiterletter" href="X" title="Show only databases starting with X">X</a></li>
+<li><a class="limiterletter" href="Y" title="Show only databases starting with Y">Y</a></li>
+<li><a class="limiterletter" href="Z" title="Show only databases starting with Z">Z</a></li>
+<li><a class="limiterletter" href="all" title="Show all databases">All</a></li>
+</ul>
+</div>
+<p>
+<script type="text/javascript">// <![CDATA[
+$(document).ready(function(){
+        $(".limiterletter").each(function() {
+			var selectedcriteria = $(this).attr('href');
+			if (selectedcriteria != "all"){
+				if ($(".itemlist li").filter(function(){
+						    return $(this).text().indexOf(selectedcriteria) == 0 }
+						).length === 0) {
+							$(this).parent().hide();
+						}
+				}
+		});
+
+        $(".limiterletter").click(function(event){
+                event.preventDefault();
+                var selectedcriteria = $(this).attr('href');
+                if (selectedcriteria == "all"){
+                        $(".itemlist li").show();
+                } else {
+                        $(".itemlist li").hide();
+                        $(".itemlist li").filter(function(){
+						    return $(this).text().indexOf(selectedcriteria) == 0 }
+						).show();
+						if ($(".itemlist li").filter(function(){
+						    return $(this).text().indexOf(selectedcriteria) == 0 }
+						).length === 0) {
+							$("#limiterletterresults").show().text("There are no databases that start with " + selectedcriteria + ".");
+						} else {
+							$("#limiterletterresults").hide();
+						}
+                }
+                return false;           
+        });
+      });
+// ]]></script>
+</p>
+<div id="limiterletterresults"></div>
