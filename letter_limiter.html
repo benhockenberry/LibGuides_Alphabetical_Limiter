@@ -1,29 +1,31 @@
 <style type="text/css"><!--
+//Center the list
 .letterlimiterbox {
 text-align: center;
 }
+//Format the spacing of the list and make it inline
 .letterlimiterbox ul {
 	margin-left: 0;
 	padding-left: 0;
 	display: inline;
 	}
-	.letterlimiterbox ul li {
+.letterlimiterbox ul li {
 	margin-left: 0;
 	padding: 0.35em 0.65em 0.85em 0.65em;
 	/*border-left: 1px solid #000;*/
 	list-style: none;
 	display: inline;
-	}	
-        .letterlimiterbox ul li:first-child {
- margin-left: 0;
- padding: 0.35em 0.65em 0.85em 0em;
-/* border-left: none;*/
- list-style: none;
- display: inline;
- }
+}	
+.letterlimiterbox ul li:first-child {
+	margin-left: 0;
+	padding: 0.35em 0.65em 0.85em 0em;
+	list-style: none;
+	display: inline;
+}
 --></style>
 <div class="letterlimiterbox">
 <h3>Databases A-Z</h3>
+<!--Only the letters that are present on the current page will display as options-->
 <ul class="limiterletters">
 <li><a class="limiterletter" href="A" title="Show only databases starting with A">A</a></li>
 <li><a class="limiterletter" href="B" title="Show only databases starting with B">B</a></li>
@@ -56,8 +58,11 @@ text-align: center;
 </div>
 <p>
 <script type="text/javascript">// <![CDATA[
+//Initialize script
 $(document).ready(function(){
-        $(".limiterletter").each(function() {
+        //Test for presence of each letter in the page below.  If the letter is not present at the start of link text, no limiter shows.
+		//If you want to display all letters, just remove or comment out this function.
+		$(".limiterletter").each(function() {
 			var selectedcriteria = $(this).attr('href');
 			if (selectedcriteria != "all"){
 				if ($(".itemlist li").filter(function(){
@@ -67,24 +72,32 @@ $(document).ready(function(){
 						}
 				}
 		});
-
+		
+		//Add limiter behavior to each letter filter
         $(".limiterletter").click(function(event){
-                event.preventDefault();
-                var selectedcriteria = $(this).attr('href');
+                //prevent link from acting as a link
+				event.preventDefault();
+				var selectedcriteria = $(this).attr('href');
                 if (selectedcriteria == "all"){
-                        $(".itemlist li").show();
+					//show all links in list
+					$(".itemlist li").show();
                 } else {
+						//hide all links
                         $(".itemlist li").hide();
+						//show only desired links on the basis of their first letter matching "selectedcriteria"
                         $(".itemlist li").filter(function(){
 						    return $(this).text().indexOf(selectedcriteria) == 0 }
 						).show();
+						//The below function can be used if you prefer to keep all letter limiters and simply deliver a message of 'no results'.  Un-comment the section below if desired.
+						/*
 						if ($(".itemlist li").filter(function(){
 						    return $(this).text().indexOf(selectedcriteria) == 0 }
 						).length === 0) {
-							$("#limiterletterresults").show().text("There are no databases that start with " + selectedcriteria + ".");
+							$("#limiterletterresults").show().text("There are no links that start with " + selectedcriteria + ".");
 						} else {
 							$("#limiterletterresults").hide();
 						}
+						*/
                 }
                 return false;           
         });
