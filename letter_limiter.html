@@ -1,6 +1,8 @@
-<!-- Script by Ben Hockenberry, Systems Librarian, St. John Fisher College Lavery Library
-	HTML for insertion into a LibGuides "links and lists" box to enable hiding and display based on clicking a letter limiter.  Sample site using it: http://libguides.sjfc.edu/databaselist
-     Feel free to adapt or modify the script, but please keep this attribution header in place -->
+<!-- Script by Ben Hockenberry, Systems Librarian, St. John Fisher College Lavery Library, updated 2013-09-16
+	HTML for insertion into a LibGuides "links and lists" box to enable hiding and display based on clicking a letter limiter.
+	Example: http://libguides.sjfc.edu/databaselist
+	View the most recent code on GitHub: https://github.com/benhockenberry/LibGuides_Alphabetical_Limiter
+    Feel free to adapt or modify the script, but please keep this attribution header in place. -->
 <style type="text/css"><!--
 /*Center the list*/
 .letterlimiterbox {
@@ -29,33 +31,33 @@ text-align: center;
 <div class="letterlimiterbox">
 <!--Only the letters that are present on the current page will display as options-->
 <ul class="limiterletters">
-<li><a class="limiterletter" href="A" title="Show only databases starting with A">A</a></li>
-<li><a class="limiterletter" href="B" title="Show only databases starting with B">B</a></li>
-<li><a class="limiterletter" href="C" title="Show only databases starting with C">C</a></li>
-<li><a class="limiterletter" href="D" title="Show only databases starting with D">D</a></li>
-<li><a class="limiterletter" href="E" title="Show only databases starting with E">E</a></li>
-<li><a class="limiterletter" href="F" title="Show only databases starting with F">F</a></li>
-<li><a class="limiterletter" href="G" title="Show only databases starting with G">G</a></li>
-<li><a class="limiterletter" href="H" title="Show only databases starting with H">H</a></li>
-<li><a class="limiterletter" href="I" title="Show only databases starting with I">I</a></li>
-<li><a class="limiterletter" href="J" title="Show only databases starting with J">J</a></li>
-<li><a class="limiterletter" href="K" title="Show only databases starting with K">K</a></li>
-<li><a class="limiterletter" href="L" title="Show only databases starting with L">L</a></li>
-<li><a class="limiterletter" href="M" title="Show only databases starting with M">M</a></li>
-<li><a class="limiterletter" href="N" title="Show only databases starting with N">N</a></li>
-<li><a class="limiterletter" href="O" title="Show only databases starting with O">O</a></li>
-<li><a class="limiterletter" href="P" title="Show only databases starting with P">P</a></li>
-<li><a class="limiterletter" href="Q" title="Show only databases starting with Q">Q</a></li>
-<li><a class="limiterletter" href="R" title="Show only databases starting with R">R</a></li>
-<li><a class="limiterletter" href="S" title="Show only databases starting with S">S</a></li>
-<li><a class="limiterletter" href="T" title="Show only databases starting with T">T</a></li>
-<li><a class="limiterletter" href="U" title="Show only databases starting with U">U</a></li>
-<li><a class="limiterletter" href="V" title="Show only databases starting with V">V</a></li>
-<li><a class="limiterletter" href="W" title="Show only databases starting with W">W</a></li>
-<li><a class="limiterletter" href="X" title="Show only databases starting with X">X</a></li>
-<li><a class="limiterletter" href="Y" title="Show only databases starting with Y">Y</a></li>
-<li><a class="limiterletter" href="Z" title="Show only databases starting with Z">Z</a></li>
-<li><a class="limiterletter" href="all" title="Show all databases">All</a></li>
+<li><a class="limiterletter" href="#A" title="Show only databases starting with A">A</a></li>
+<li><a class="limiterletter" href="#B" title="Show only databases starting with B">B</a></li>
+<li><a class="limiterletter" href="#C" title="Show only databases starting with C">C</a></li>
+<li><a class="limiterletter" href="#D" title="Show only databases starting with D">D</a></li>
+<li><a class="limiterletter" href="#E" title="Show only databases starting with E">E</a></li>
+<li><a class="limiterletter" href="#F" title="Show only databases starting with F">F</a></li>
+<li><a class="limiterletter" href="#G" title="Show only databases starting with G">G</a></li>
+<li><a class="limiterletter" href="#H" title="Show only databases starting with H">H</a></li>
+<li><a class="limiterletter" href="#I" title="Show only databases starting with I">I</a></li>
+<li><a class="limiterletter" href="#J" title="Show only databases starting with J">J</a></li>
+<li><a class="limiterletter" href="#K" title="Show only databases starting with K">K</a></li>
+<li><a class="limiterletter" href="#L" title="Show only databases starting with L">L</a></li>
+<li><a class="limiterletter" href="#M" title="Show only databases starting with M">M</a></li>
+<li><a class="limiterletter" href="#N" title="Show only databases starting with N">N</a></li>
+<li><a class="limiterletter" href="#O" title="Show only databases starting with O">O</a></li>
+<li><a class="limiterletter" href="#P" title="Show only databases starting with P">P</a></li>
+<li><a class="limiterletter" href="#Q" title="Show only databases starting with Q">Q</a></li>
+<li><a class="limiterletter" href="#R" title="Show only databases starting with R">R</a></li>
+<li><a class="limiterletter" href="#S" title="Show only databases starting with S">S</a></li>
+<li><a class="limiterletter" href="#T" title="Show only databases starting with T">T</a></li>
+<li><a class="limiterletter" href="#U" title="Show only databases starting with U">U</a></li>
+<li><a class="limiterletter" href="#V" title="Show only databases starting with V">V</a></li>
+<li><a class="limiterletter" href="#W" title="Show only databases starting with W">W</a></li>
+<li><a class="limiterletter" href="#X" title="Show only databases starting with X">X</a></li>
+<li><a class="limiterletter" href="#Y" title="Show only databases starting with Y">Y</a></li>
+<li><a class="limiterletter" href="#Z" title="Show only databases starting with Z">Z</a></li>
+<li><a class="limiterletter" href="#all" title="Show all databases">All</a></li>
 </ul>
 </div>
 <p>
@@ -65,7 +67,8 @@ $(document).ready(function(){
         /*Test for presence of each letter in the page below.  If the letter is not present at the start of link text, no limiter shows.
 		If you want to display all letters, just remove or comment out this function.*/
 		$(".limiterletter").each(function() {
-			var selectedcriteria = $(this).attr('href');
+			/*place the letter's value into a criteria variable, removing the # sign*/
+			var selectedcriteria = $(this).attr('href').substring(1);
 			if (selectedcriteria != "all"){
 				if ($(".itemlist li").filter(function(){
 						    return $(this).text().toUpperCase().indexOf(selectedcriteria) == 0 }
@@ -79,8 +82,9 @@ $(document).ready(function(){
         $(".limiterletter").click(function(event){
                 /*prevent link from acting as a link*/
 				event.preventDefault();
-				var selectedcriteria = $(this).attr('href');
-                if (selectedcriteria == "all"){
+				/*place the letter's value into a criteria variable, removing the # sign*/
+				var selectedcriteria = $(this).attr('href').substring(1);
+				if (selectedcriteria == "all"){
 					/*show all links in list*/
 					$(".itemlist li").show();
                 } else {
