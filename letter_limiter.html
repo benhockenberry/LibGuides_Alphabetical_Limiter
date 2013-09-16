@@ -64,26 +64,7 @@ text-align: center;
 <script type="text/javascript">// <![CDATA[
 /*Initialize script*/
 $(document).ready(function(){
-        /*Test for presence of each letter in the page below.  If the letter is not present at the start of link text, no limiter shows.
-		If you want to display all letters, just remove or comment out this function.*/
-		$(".limiterletter").each(function() {
-			/*place the letter's value into a criteria variable, removing the # sign*/
-			var selectedcriteria = $(this).attr('href').substring(1);
-			if (selectedcriteria != "all"){
-				if ($(".itemlist li").filter(function(){
-						    return $(this).text().toUpperCase().indexOf(selectedcriteria) == 0 }
-						).length === 0) {
-							$(this).parent().hide();
-						}
-				}
-		});
-		
-		/*Add limiter behavior to each letter filter*/
-        $(".limiterletter").click(function(event){
-                /*prevent link from acting as a link*/
-				event.preventDefault();
-				/*place the letter's value into a criteria variable, removing the # sign*/
-				var selectedcriteria = $(this).attr('href').substring(1);
+		function limitbyletter(selectedcriteria){
 				if (selectedcriteria == "all"){
 					/*show all links in list*/
 					$(".itemlist li").show();
@@ -106,7 +87,39 @@ $(document).ready(function(){
 						*/
                 }
                 return false;           
-        });
+        }
+		
+		/*Add support for processing the limiters if a link is directed here with a full URL*/
+		/*Get the URL's anchor value with location.hash and remove the # sign*/
+		anchortext=location.hash.replace(/^.*#/, '');
+		/*If there is an anchor present, use it in this function.*/
+		if (anchortext.length > 0){
+			limitbyletter(anchortext);
+		}
+
+        /*Test for presence of each letter in the page below.  If the letter is not present at the start of link text, no limiter shows.
+		If you want to display all letters, just remove or comment out this function.*/
+		$(".limiterletter").each(function() {
+			/*place the letter's value into a criteria variable, removing the # sign*/
+			var selectedcriteria = $(this).attr('href').substring(1);
+			if (selectedcriteria != "all"){
+				if ($(".itemlist li").filter(function(){
+						    return $(this).text().toUpperCase().indexOf(selectedcriteria) == 0 }
+						).length === 0) {
+							$(this).parent().hide();
+						}
+				}
+		});
+		
+		/*Add limiter behavior to each letter filter*/
+        $(".limiterletter").click(function(event){
+                /*prevent link from acting as a link*/
+				event.preventDefault();
+				/*place the letter's value into a criteria variable, removing the # sign*/
+				var selectedcriteria = $(this).attr('href').substring(1);
+				limitbyletter(selectedcriteria);
+				return false;
+		});		
       });
 // ]]></script>
 </p>
