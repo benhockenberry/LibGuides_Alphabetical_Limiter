@@ -5,3 +5,4 @@ As of its publishing, this code will cause all links-and-lists boxes on a page t
 
 Change Log:
 2013-09-11 - Repository populated
+2013-09-16 - Added support for upper and lower case initial letters
