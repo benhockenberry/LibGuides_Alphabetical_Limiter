@@ -2,11 +2,11 @@
 	HTML for insertion into a LibGuides "links and lists" box to enable hiding and display based on clicking a letter limiter.  Sample site using it: http://libguides.sjfc.edu/databaselist
      Feel free to adapt or modify the script, but please keep this attribution header in place -->
 <style type="text/css"><!--
-//Center the list
+/*Center the list*/
 .letterlimiterbox {
 text-align: center;
 }
-//Format the spacing of the list and make it inline
+/*Format the spacing of the list and make it inline*/
 .letterlimiterbox ul {
 	margin-left: 0;
 	padding-left: 0;
@@ -60,10 +60,10 @@ text-align: center;
 </div>
 <p>
 <script type="text/javascript">// <![CDATA[
-//Initialize script
+/*Initialize script*/
 $(document).ready(function(){
-        //Test for presence of each letter in the page below.  If the letter is not present at the start of link text, no limiter shows.
-		//If you want to display all letters, just remove or comment out this function.
+        /*Test for presence of each letter in the page below.  If the letter is not present at the start of link text, no limiter shows.
+		If you want to display all letters, just remove or comment out this function.*/
 		$(".limiterletter").each(function() {
 			var selectedcriteria = $(this).attr('href');
 			if (selectedcriteria != "all"){
@@ -75,22 +75,22 @@ $(document).ready(function(){
 				}
 		});
 		
-		//Add limiter behavior to each letter filter
+		/*Add limiter behavior to each letter filter*/
         $(".limiterletter").click(function(event){
-                //prevent link from acting as a link
+                /*prevent link from acting as a link*/
 				event.preventDefault();
 				var selectedcriteria = $(this).attr('href');
                 if (selectedcriteria == "all"){
-					//show all links in list
+					/*show all links in list*/
 					$(".itemlist li").show();
                 } else {
-						//hide all links
+						/*hide all links*/
                         $(".itemlist li").hide();
-						//show only desired links on the basis of their first letter matching "selectedcriteria"
+						/*show only desired links on the basis of their first letter matching "selectedcriteria"*/
                         $(".itemlist li").filter(function(){
 						    return $(this).text().toUpperCase().indexOf(selectedcriteria) == 0 }
 						).show();
-						//The below function can be used if you prefer to keep all letter limiters and simply deliver a message of 'no results'.  Un-comment the section below if desired.
+						/*The below function can be used if you prefer to keep all letter limiters and simply deliver a message of 'no results'.  Un-comment the section below if desired.*/
 						/*
 						if ($(".itemlist li").filter(function(){
 						    return $(this).text().toUpperCase().indexOf(selectedcriteria) == 0 }
