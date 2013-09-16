@@ -65,7 +65,7 @@ $(document).ready(function(){
 			var selectedcriteria = $(this).attr('href');
 			if (selectedcriteria != "all"){
 				if ($(".itemlist li").filter(function(){
-						    return $(this).text().indexOf(selectedcriteria) == 0 }
+						    return $(this).text().toUpperCase().indexOf(selectedcriteria) == 0 }
 						).length === 0) {
 							$(this).parent().hide();
 						}
@@ -85,12 +85,12 @@ $(document).ready(function(){
                         $(".itemlist li").hide();
 						//show only desired links on the basis of their first letter matching "selectedcriteria"
                         $(".itemlist li").filter(function(){
-						    return $(this).text().indexOf(selectedcriteria) == 0 }
+						    return $(this).text().toUpperCase().indexOf(selectedcriteria) == 0 }
 						).show();
 						//The below function can be used if you prefer to keep all letter limiters and simply deliver a message of 'no results'.  Un-comment the section below if desired.
 						/*
 						if ($(".itemlist li").filter(function(){
-						    return $(this).text().indexOf(selectedcriteria) == 0 }
+						    return $(this).text().toUpperCase().indexOf(selectedcriteria) == 0 }
 						).length === 0) {
 							$("#limiterletterresults").show().text("There are no links that start with " + selectedcriteria + ".");
 						} else {
